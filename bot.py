@@ -126,11 +126,11 @@ def add_wallet_finish(update: Update, context: CallbackContext) -> int:
         update.message.reply_text("Uh-oh! That Solana wallet address seems a bit fishy. Double-check it and send a valid one, please! 🕵️‍♂️", reply_markup=reply_markup)
         return
     
-    # Check # of transactions for the last day for this wallet
-    check_res, check_num_tx = check_wallet_transactions(wallet_address)
-    if not check_res:
-        update.message.reply_text(f"Whoa, slow down Speedy Gonzales! 🏎️ We can only handle wallets with under 50 transactions per day. Your wallet's at {round(check_num_tx, 1)}. Let's pick another, shall we? 😉", reply_markup=reply_markup)
-        return
+    # # Check # of transactions for the last day for this wallet
+    # check_res, check_num_tx = check_wallet_transactions(wallet_address)
+    # if not check_res:
+    #     update.message.reply_text(f"Whoa, slow down Speedy Gonzales! 🏎️ We can only handle wallets with under 50 transactions per day. Your wallet's at {round(check_num_tx, 1)}. Let's pick another, shall we? 😉", reply_markup=reply_markup)
+    #     return
 
     # Check how many wallets a user has. Limit to 5
     if wallet_count_for_user(user_id) >= 5:
